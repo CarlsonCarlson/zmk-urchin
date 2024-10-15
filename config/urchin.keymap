@@ -118,7 +118,7 @@
 			label = "Sym.2";
 			bindings = <
 			&none &none &none &none &none         								&none &none &none &none &none 
-			&none &kp GRAVE &kp PRCNT &kp CARET &none         					&none &kp LBRC &kp RBRC &kp PIPE &BACKSLASH
+			&none &kp GRAVE &kp PRCNT &kp CARET &none         					&none &kp LBRC &kp RBRC &kp PIPE &kp BACKSLASH
 			&none &none &none &kp LT &none				  					&none &kp GT &none &none &none
 													&none &none        	&none &none 
 			>;
