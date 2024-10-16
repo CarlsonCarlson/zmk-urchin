@@ -67,72 +67,115 @@
 		};
 	};
 
-	keymap {
-		compatible = "zmk,keymap";
-		// Base alpha layer
-		default_layer {
-			label = "Base";
-			bindings = <
-			&kp Q &kp W &kp E &kp R &kp T           &kp Y &kp U  &kp I     &kp O   &kp P 
-			&kp A &kp S &kp D &kp F &kp G           &kp H &kp J  &kp K     &kp L &kp COLON
-			&kp Z &kp X &kp C &kp V &kp B           &kp N &kp M  &kp COMMA &kp DOT &kp QMARK
-							&mo EXT &qt LSHIFT SPACE           &kp SPACE &sl SYM
-			>;
-		};
+   keymap {
+        compatible = "zmk,keymap";
 
-		// Numbers and high frequency symbols
-		sym_layer {
-			label = "Sym.";
-			bindings = <
-			&kp EXCL &kp AT &kp HASH &kp DLLR &kp LBKT 						&none &kp AMPS &kp STAR &kp LPAR &kp RPAR
-			&kp N1 &kp N2 &kp N3 &kp N4 &kp N5		                        &kp N6 &kp N7 &kp N8 &kp N9 &kp N0
-			&kp TILDE &kp SEMI &kp PLUS &kp EQUAL &kp RBKT 					&kp MINUS &kp UNDER &kp SLASH &kp DOUBLE_QUOTES &kp SINGLE_QUOTE
-										&mo FNC  &mo SYM2       		&trans &trans
-			>;
-		};
+        default_layer {
+            label = "Base";
+            bindings = <
+        //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
+        //│  Q       │  W       │  E       │  R       │  T       │   │  Y       │  U       │  I       │  O       │  P       │
+            &kp Q      &kp W      &kp E      &kp R      &kp T          &kp Y      &kp U      &kp I      &kp O      &kp P
+        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+        //│  A       │  S       │  D       │  F       │  G       │   │  H       │  J       │  K       │  L       │  :       │
+            &kp A      &kp S      &kp D      &kp F      &kp G          &kp H      &kp J      &kp K      &kp L      &kp COLON
+        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+        //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ ,        │ .        │  ?       │
+            &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M      &kp COMMA  &kp DOT    &kp QMARK
+        //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
+                                            &mo EXT    &qt LSHIFT SPACE    &kp SPACE  &sl SYM
+        //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
+            >;
+        };
 
-		// Main modifiers and arrow keys
-		ext_layer {
-			label = "Mods";
-			bindings = <
-			&none  &kp C_PREV &kp C_PP  &kp C_NEXT  &kp C_PAUSE    	&kp PG_UP  &kp HOME &kp UP &kp END &kp CAPS
-			&kp ESC &sk LGUI  &sk LSHIFT  &sk LCTRL  &sk LALT 			&kp PG_DN &kp LEFT  &kp DOWN  &kp RIGHT &kp DEL
-			&kp LC(Z)  &kp LC(X) &kp LC(C) &kp TAB   &kp LC(V)          &kp LC(BSPC) &kp BSPC &trans &trans  &trans
-																		&trans &kp LCTRL    &kp ENTER  &mo FNC 
-			>;
-		};
+        sym_layer {
+            label = "Sym.";
+            bindings = <
+        //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
+        //│  !       │  @       │  #       │  $       │  [       │   │          │  &       │  *       │  (       │  )       │
+            &kp EXCL   &kp AT     &kp HASH   &kp DLLR   &kp LBKT       &none      &kp AMPS   &kp STAR   &kp LPAR   &kp RPAR
+        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+        //│  1       │  2       │  3       │  4       │  5       │   │  6       │  7       │  8       │  9       │  0       │
+            &kp N1     &kp N2     &kp N3     &kp N4     &kp N5         &kp N6     &kp N7     &kp N8     &kp N9     &kp N0
+        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+        //│  ~       │  ;       │  +       │  =       │  ]       │   │  -       │  _       │  /       │  "       │  '       │
+            &kp TILDE  &kp SEMI   &kp PLUS   &kp EQUAL  &kp RBKT       &kp MINUS  &kp UNDER  &kp SLASH  &kp DQT    &kp SQT
+        //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
+                                             &mo FNC    &mo SYM2       &trans     &trans
+        //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
+            >;
+        };
 
-		// Function keys with modifiers
-		fnc_layer {
-			label = "FRow";
-			bindings = <
-			&kp F1 &kp F2 &kp F3 &kp F4 &kp F5                  &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 
-			&sk LALT &sk LGUI &sk LSHIFT &sk LCTRL &kp RALT     &kp F11 &kp F12  &kp PRINTSCREEN &trans &trans
-			&none &none &none &none &none				          &none &none &none &none &none 
-							  &none &none              &none &none  
-			>;
-		};
+        ext_layer {
+            label = "Mods";
+            bindings = <
+        //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
+        //│          │ C_PREV   │ C_PP     │ C_NEXT   │ C_PAUSE  │   │ PG_UP    │ HOME     │ UP       │ END      │ CAPS     │
+            &none      &kp C_PREV &kp C_PP   &kp C_NEXT &kp C_PAUSE    &kp PG_UP  &kp HOME   &kp UP     &kp END    &kp CAPS
+        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+        //│ ESC      │ LGUI     │ LSHIFT   │ LCTRL    │ LALT     │   │ PG_DN    │ LEFT     │ DOWN     │ RIGHT    │ DEL      │
+            &kp ESC    &sk LGUI   &sk LSHIFT &sk LCTRL  &sk LALT       &kp PG_DN  &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL
+        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+        //│ LC(Z)    │ LC(X)    │ LC(C)    │ TAB      │ LC(V)    │   │ LC(BSPC) │ BSPC     │          │          │          │
+            &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp TAB    &kp LC(V)      &kp LC(BSPC) &kp BSPC &trans     &trans     &trans
+        //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
+                                             &trans     &kp LCTRL      &kp ENTER  &mo FNC
+        //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
+            >;
+        };
 
-		// Low frequency symbols.
-		symbols_2_layer {
-			label = "Sym.2";
-			bindings = <
-			&none &none &none &none &none         								&none &none &none &none &none 
-			&none &kp GRAVE &kp PRCNT &kp CARET &none         					&none &kp LBRC &kp RBRC &kp PIPE &kp BACKSLASH
-			&none &none &none &kp LT &none				  					&none &kp GT &none &none &none
-													&none &none        	&none &none 
-			>;
-		};
+        fnc_layer {
+            label = "FRow";
+            bindings = <
+        //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
+        //│ F1       │ F2       │ F3       │ F4       │ F5       │   │ F6       │ F7       │ F8       │ F9       │ F10      │
+            &kp F1     &kp F2     &kp F3     &kp F4     &kp F5         &kp F6     &kp F7     &kp F8     &kp F9     &kp F10
+        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+        //│ LALT     │ LGUI     │ LSHIFT   │ LCTRL    │ RALT     │   │ F11      │ F12      │ PSCRN    │          │          │
+            &sk LALT   &sk LGUI   &sk LSHIFT &sk LCTRL  &kp RALT       &kp F11    &kp F12    &kp PRINTSCREEN &trans &trans
+        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+        //│          │          │          │          │          │   │          │          │          │          │          │
+            &none      &none      &none      &none      &none          &none      &none      &none      &none      &none
+        //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
+                                             &none      &none          &none      &none
+        //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
+            >;
+        };
 
-		// Used to change the keyboard's settings.
-		settings_layer {
-				label = "Sett.";
-				bindings = <
-				&bootloader &none &none &bt BT_CLR &bt BT_SEL 0               &bt BT_SEL 3 &none &unstick &none &bootloader 
-				&none &none &none &none      &bt BT_SEL 1 						  &bt BT_SEL 4 &none &none &none &none
-				&none &none &none &none      &bt BT_SEL 2               &bt BT_SEL 5 &none &none &none &none
-										&none &none                         &none &none 
-				>;
-		};
-	};
+        symbols_2_layer {
+            label = "Sym.2";
+            bindings = <
+        //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
+        //│          │          │          │          │          │   │          │          │          │          │          │
+            &none      &none      &none      &none      &none          &none      &none      &none      &none      &none
+        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+        //│          │ GRAVE    │ PRCNT    │ CARET    │          │   │          │ LBRC     │ RBRC     │ PIPE     │ BSLH     │
+            &none      &kp GRAVE  &kp PRCNT  &kp CARET  &none          &none      &kp LBRC   &kp RBRC   &kp PIPE   &kp BSLH
+        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+        //│          │          │          │ LT       │          │   │          │ GT       │          │          │          │
+            &none      &none      &none      &kp LT     &none          &none      &kp GT     &none      &none      &none
+        //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
+                                             &none      &none          &none      &none
+        //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
+            >;
+        };
+
+        settings_layer {
+            label = "Sett.";
+            bindings = <
+        //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
+        //│BOOTLOADER│          │          │ BT_CLR   │ BT_SEL 0 │   │ BT_SEL 3 │          │ UNSTICK  │          │BOOTLOADER│
+            &bootloader &none     &none      &bt BT_CLR &bt BT_SEL 0   &bt BT_SEL 3 &none    &unstick   &none      &bootloader
+        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+        //│          │          │          │          │ BT_SEL 1 │   │ BT_SEL 4 │          │          │          │          │
+            &none      &none      &none      &none      &bt BT_SEL 1   &bt BT_SEL 4 &none    &none      &none      &none
+        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+        //│          │          │          │          │ BT_SEL 2 │   │ BT_SEL 5 │          │          │          │          │
+            &none      &none      &none      &none      &bt BT_SEL 2   &bt BT_SEL 5 &none    &none      &none      &none
+        //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
+                                             &none      &none          &none      &none
+        //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
+            >;
+        };
+    };
 };
