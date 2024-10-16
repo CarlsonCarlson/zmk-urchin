@@ -19,7 +19,7 @@ This layout is inspired by [Seniply by Stevep99](https://stevep99.github.io/seni
 [See it in action on YouTube!](https://youtu.be/IZ83uU0ltaE)
 <div align="center">
   
-  ![sweep-layout](carlson-urchin-diagram.png)
+  ![sweep-layout](carlson-urchin-diagram.svg)
 
 </div>
 
